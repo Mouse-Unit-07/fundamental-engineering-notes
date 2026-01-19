@@ -1,0 +1,131 @@
+# Markdown Notes
+
+- Saved here are Ryuichi's fundamental and supplemental engineering notes from:
+  - Key books (...asking ChatGPT for what books to read is probably one of the best ways to use ChatGPT)
+  - School
+  - Professional experience
+- They're here to:
+  - Help memorize concepts as they come into our context, and safely forget for when we don't use some details for a long time
+  - Share ideas w/ others
+  - Avoid making the same mistakes that caused us pain
+
+## Key/Essential Books
+
+- **Learning**
+  - _Make It Stick: The Science of Successful Learning_
+    - by Peter C. Brown, Henry L. Roediger III, & Mark A. McDaniel
+    - Debunks common study myths and emphasizes the importance of practical practice over passive reading
+    - Reinforced by _How We Learn: Why Brains Learn Better Than Any Machine… for Now_
+  - _How We Learn: Why Brains Learn Better Than Any Machine… for Now_
+    - by Stanislas Dehaene
+    - A cognitive neuroscience perspective on how learning happens, across all cultures
+    - Explains why certain teaching methods (like active learning and feedback) work better
+- **Software engineering**
+  - _Clean Code: A Handbook of Agile Software Craftsmanship_
+    - by Robert C. Martin
+    - Modern software engineering patterns
+  - _An Introduction to Modern CMake_
+    - by Henry Schreiner
+    - Free online book w/ Do's and Don't Do's for using CMake
+    - Link here: https://cliutils.gitlab.io/modern-cmake/README.html
+  - _The DevOps Handbook_- 2nd Edition
+    - by Gene Kim, Jez Humble, Patrick Debois, John Willis, Nicole Forsgren
+    - Accelerates your software engineering journey
+    - History of failing software development infrastructures and solutions
+  - _UML Distilled_
+    - by Martin C. Fowler
+    - Short book introducing all useful UML elements
+    - Examples of quick sketches to talk about engineering designs
+  - _Working Effectively with Legacy Code_
+    - by Michael C. Feathers
+    - How to deal w/ a horrible codebase w/ modern software philosophies
+  - _Design Patterns: Elements of Reusable Object-Oriented Software_
+    - by Erich Gamma, Richard Helm, Ralph Johnson & John Vlissides
+    - Shows how to build flexible, reusable architectures
+    - ...Some ideas are dated, but still relevant
+  - _Pragmatic Guide to Git_
+    - by Travis Swicegood
+    - A Git guide that's a bit dated, but still relatively concise w/ the bare minimum you need to know
+  - _The Manager’s Path_
+    - by Camille Fournier
+    - Helps identify good leadership, mentorship, and team dynamics
+    - Arms you w/ heuristics to help both when you're leading and when you're being led
+- **C programming**
+  - _C Programming Language_- 2nd Edition
+    - by Brian W. Kernighan, Dennis M. Ritchie
+    - Defines C programming language
+    - Presents capabilities of ANSI C to write software w/ maximum compatibility
+    - Also great for when you start to question why the language lets us write abominations
+  - _Test-Driven Development for Embedded C_
+    - by James Grenning
+    - TDD introduction and examples for embedded software engineers
+  - _Deep C Secrets_
+    - by Peter van der Linden
+    - Shows corner cases, traps, and clever techniques in C programming
+- **C++ programming**
+  - _Modern C++ Programming with Test-Driven Development: Code Better, Sleep Better_
+    - by Jeff Langr
+    - TDD for C++
+  - _The C++ Programming Language- 4th edition_
+    - by Bjarne Stroustrup
+    - Definitive reference to the C++ language by its creator
+- **Hardware**
+  - _The Art of Electronics_- 3rd edition
+    - by Paul Horowitz & Winfield Hill
+    - Considered the Bible of practical electronics- covers so darn much
+  - _Circuit Analysis For Dummies_
+    - by John Santiago
+    - Covers Ohm’s Law, Kirchhoff’s Laws, Thevenin/Norton equivalents, and transient analysis
+    - Clear and beginner-friendly
+  - _PCB Design From Start To Finish_ (free E-Book)
+    - by John Burkhert (Cadence)
+    - Short beginners guide to PCB design steps from concept through layout
+- **Linux**
+  - _Embedded Linux Primer: A Practical Real-World Approach_- 3rd edition
+    - by Christopher Hallinan
+    - Clear and practical introduction to embedded Linux
+    - Covers toolchains, bootloaders, kernel, drivers
+  - _The Linux Programming Interface_
+    - by Michael Kerrisk
+    - The “Linux Bible” for system programming
+    - Indispensable for writing C programs targeting Linux
+- **Embedded**
+  - _Making Embedded Systems: Design Patterns for Great Software_- 2nd edition
+    - by Elecia White
+    - Great introduction to embedded development with a software engineering mindset
+  - _The Firmware Handbook_
+    - Jack Ganssle
+    - Includes chapters on startup code, bootloaders, hardware abstraction, testing, and debugging
+    - ...Ganssle is a legendary figure in the embedded world
+  - _Computer Systems: A Programmer's Perspective_- 3rd edition
+    - by Randal E. Bryant & David R. O’Hallaron
+    - Bridges high-level programming with assembly, memory layout, caching, and hardware performance
+    - Covers how C maps to instructions and how embedded devs can optimize their code
+
+## Supplemental Books
+
+- **Software engineering**
+  - _CMake Best Practices_
+    - by Dominik Berner, Musafa Kemal Gilor
+    - Example applications of CMake
+- **C programming**
+  - _Embedded C Coding Standard (BARR‑C:2018)_
+    - by Michael Barr
+    - Attempts to teach you to write clean, safe, and interview-friendly C code
+    - Dated- _Clean Code_ is what's modern, but doesn't hurt to read
+- **Embedded**
+  - _Computer Organization and Design: The Hardware/Software Interface_- ARM/5th edition
+    - by David A. Patterson & John L. Hennessy
+    - A standard textbook on computer engineering fundamentals
+  - _Structured Computer Organization_
+    - by Andrew S. Tanenbaum
+    - Explains how software interfaces with hardware at multiple abstraction layers (from logic gates up to OS)
+  - _Code: The Hidden Language of Computer Hardware and Software_- 2nd edition
+    - by Charles Petzold
+    - Explains how computers work from logic gates to modern software
+  - _Embedded Systems: Introduction to ARM Cortex‑M Microcontrollers_- 5th edition
+    - by Jonathan W. Valvano
+    - Nice ARM MCU and assembly focused embedded book
+  - _Embedded Systems: Real‑Time Operating Systems for ARM Cortex‑M_
+    - by Jonathan W. Valvano
+    - Continuation of _Embedded Systems: Introduction to ARM Cortex‑M Microcontrollers_
