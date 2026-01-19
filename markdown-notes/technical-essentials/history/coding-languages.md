@@ -1,0 +1,102 @@
+# Coding Languages History
+
+- History of programming languages notes
+
+## Index
+
+- [Index](#index)
+- [A Rough Timeline](#a-rough-timeline)
+
+## A Rough Timeline
+
+- **Mechanical programming methods**
+  - ...We'll skip over punch cards
+- **Assembly**
+  - All software was at first target specific
+- **FORTRAN**
+  - IBM, 1950s
+  - First "high-level language"
+  - Scientific/numerical computing
+  - Had presence in 1960s-80s, a niche for HPC now
+- **LISP**
+  - MIT, 1950s
+  - Had presence in 1960s-80s, moderate use now
+- **COBOL**
+  - English-like syntax
+  - "common business oriented language"
+  - Had presence in 1960s-80s, now in legacy enterprise systems
+- **ALGOL**
+  - Introduced "structured programming", block scopes, recursion
+  - Had presence in 1960s-80s
+- **BASIC**
+  - Beginner-friendly, education focused
+  - Had presence in 1970s-80s
+- **Pascal**
+  - For teaching structured programming
+  - Had presence in 1970s-80s
+- **C**
+  - The best- still abundant
+  - Derived from B- a simplified version of BCPL ("basic combined programming language")
+- **Scheme**
+  - Minimalist LISP dialect for education
+- **SQL**
+  - IBM, 1978
+  - Declarative language for databases
+  - Presence since 1980s, still used in databases
+- **Smalltalk**
+  - First pure OOP language
+  - Had presence in 1980s
+- **C++**
+  - OOP and system level programming
+  - Presence since 1980s
+- **Ada**
+  - US DoD
+  - Safe, concurrent language
+  - Had presence in 1980s, now a niche in defense/aerospace
+- **Perl**
+  - Text processing, web scripting, etc
+  - Had presence in 1990s, now replaced by Python and Ruby
+- **Haskell**
+  - Functional programming language
+  - Had some academic influence that led to Rust/Scala
+- **Python**
+  - Presence since 2000s
+- **Visual Basic**
+  - Microsoft
+  - For GUI apps on Windows
+  - Had presence in 1990s, but now replaced by .NET languages
+- **Ruby**
+  - Had presence in 2000s, now it's a smaller niche
+  - Human-centered syntax, and Rails web framework
+- **Java**
+  - Sun Microsystems
+  - Portable, OOP, cross-platform w/ JVM
+  - Presence since 1990s, and now dominant in Android
+- **JavaScript**
+  - Dynamic language for browsers, now for full-stack (Node.js)
+  - Presence since 2000s
+- **PHP**
+  - Server web scripting
+  - Had presence in 2000s, declining now, but has presence via WordPress
+- **C#**
+  - Microsoft
+  - .NET ecosystem
+  - Presence since 2000s
+- **Scala**
+  - JVM-based function/OOP mix
+  - Niche for data processing
+- **Go (Golang)**
+  - Google
+  - Efficient concurrent systems programming
+  - Presence since 2010s, popular for cloud/backend systems
+- **Rust**
+  - Mozilla
+  - Memory-safe and fast alternative to C/C++
+  - Presence since 2018, rising popularity for embedded
+- **Swift**
+  - Apple
+  - Successor of Objective-C for iOS/macOS
+  - Presence since 2015
+- **Kotlin**
+  - JetBrains
+  - Presence since 2018, and is the official Android language

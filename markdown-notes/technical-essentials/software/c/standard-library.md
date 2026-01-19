@@ -1,0 +1,395 @@
+# Standard Library
+
+- C standard library notes
+
+## Index
+
+- [Index](#index)
+- [1972/1978: K&R C](#19721978-kr-c)
+- [1989/90: ANSI C / C89 / C90](#198990-ansi-c--c89--c90)
+- [1999: C99](#1999-c99)
+- [2011: C11](#2011-c11)
+- [2017/18: C17 / C18](#201718-c17--c18)
+- [2023: C23](#2023-c23)
+- [Form Factors](#form-factors)
+
+## 1972/1978: K&R C
+
+- No formal standard library
+- Stdio.h, ctype.h existed informally
+
+## 1989/90: ANSI C / C89 / C90
+
+- `<assert.h>`
+  - Diagnostics- catch programming errors early during development and debugging
+  - `assert()`
+    - Checks an expression at runtime
+  - NDEBUG
+    - Preprocessor macro- disables `assert()` if `NDEBUG` is defined before assert.h
+- `<ctype.h>`
+  - Character classification- functions for checking characters and case conversion
+  - Critical items
+    - `isalnum(int c)`
+      - Check for alphanumeric (letter or digit)
+    - `isalpha(int c)`
+      - Check for alpha
+    - `isdigit(int c)`
+      - Check for decimal digit (0-9)
+    - `islower(int c)`
+      - Check if lowercase
+    - `isupper(int c)`
+      - Check if uppercase
+    - `isspace(int c)`
+      - Check if whitespace character (space, tab, newline, etc)
+    - `ispunct(int c)`
+      - Check if punctuation character
+    - `isxdigit(int c)`
+      - Check if hexadecimal digit (0-9, a-f, A-F)
+    - `isprint(int c)`
+      - Check if printable character including spaces
+    - `isgraph(int c)`
+      - Check if printable, but not a space
+    - `iscntrl(int c)`
+      - Check if control character (\n, \r, etc)
+    - `tolower(int c)`
+      - Convert to lowercase if uppercase
+    - `toupper(int c)`
+      - Convert to uppercase if lowercase
+- `<errorno.h>`
+  - …C tried to standardize exceptions, before the concept matured…
+  - Error codes- standard way for functions to report error conditions without needing to change return type
+  - Sets global variable errno and has functions return special values like -1, NULL, etc to indicate what an error was, as opposed to functions returning error objects
+  - Critical items
+    - `errno`
+      - Global or thread local integer variable that stores error code of error producing function call
+    - Error macros
+      - Symbolic names for error codes
+      - `EINVAL` = invalid argument
+      - `EIO` = input/output error, etc
+- `<float.h>`
+  - Floating-point limits- provide limits and characteristics of floating-point types as constants defined at compile time
+  - Critical items
+    - Min/max values
+      - `FLT_MAX`, `DBL_MIN`
+      - Largest and smallest normalized positive values
+    - Precision
+      - `FLT_DIG`, `DBL_DIG`
+      - Minimum number of decimal digits that can be stored without loss
+    - Machine epsilon
+      - `FLT_EPSILON`, `DBL_EPSILON`
+      - Smallest positive number e such that 1.0 + e != 1.0
+    - Exponent range
+      - `FLT_MIN_EXP`, `DBL_MAX_EXP`
+      - Range of exponent values
+    - Radix/rounding
+      - `FLT_RADIX`, `FLT_ROUNDS`
+      - Info about the number base (usually 2) and rounding behavior
+- `<limits.h>`
+  - Integer limits- define implementation-specific limits for integer types in C (max/min values, number of bits occupied, whether char is signed or unsigned by default)
+  - Wraps compiler specific macros like `__INT_MAX__`
+  - Critical components
+    - `INT_MIN`, `LONG_MIN`
+      - Smallest representable (most negative) value
+    - `INT_MAX`, `ULONG_MAX`
+      - Largest representable value
+    - `CHAR_BIT`
+      - Number of bits in a byte
+    - `SCHAR_MIN`, `SCHAR_MAX`
+      - Range of signed char
+    - `UCHAR_MAX`, `UINT_MAX`
+      - Largest values for unsigned types
+- `<locale.h>`
+  - Localization
+    - “Locale”- a set of cultural preferences that affect the behavior of certain functions in C like string comparison, number formatting, date/time formatting, etc
+  - Ex: decimal point vs comma, etc
+- `<math.h>`
+  - Mathematics functions- definitions and mathematical functions
+  - Basic arithmetic
+    - `fabs(x)`
+      - Absolute value of floating point
+  - Exponentiation and logarithmic
+    - `pow(x, y)`
+    - `sqrt(x)`
+    - `log(x)`
+      - Natural log, ln(x), base e
+    - `log10(x)`
+  - Trigonometric
+    - `sin(x)`, `cos(x)`, `tan(x)`, `asin(x)`, `acos(x)`, `atan(x)`
+      - All in radians
+  - Hyperbolic
+    - `sinh(x)`, `cosh(x)`, `tanh(x)`
+  - Rounding
+    - `ceil(x)`, `floor(x)`
+      - Smallest/largest integer greater/less than or equal to x
+  - Constants
+    - NAN
+      - Represents “not a number”
+      - Used for operations that can’t produce a valid number- 0/0, etc
+- `<setjmp.h>`
+  - Oh man
+  - Non-local jumps- for storing and restoring execution state, while avoiding use of goto
+  - Purpose is identical to purpose of goto- to handle errors in deeply nested code
+- `<signal.h>`
+  - Signals- for asynchronous communication for processes to know that an event occurred
+  - Signal(int signum, sighandler_t handler)
+    - Installs a signal handler
+  - Predefined signals
+    - `SIGINT`
+      - Interrupt signal- ctrl + c
+    - `SIGTERM`
+      - Termination signal
+    - `SIGKILL`
+      - Immediate process termination signal
+    - `SIGSEGV`
+      - Segmentation fault
+      - Aha this is how an IDE can identify when invalid memory accesses are made at runtime
+    - `SIGFPE`
+      - Floating point exception
+      - Division by 0, etc
+    - `SIGABRT`
+      - Abort signal- abort() call
+    - `SIGILL`
+      - Illegal instruction signal
+  - Signal handling safety
+    - You need to make sure you’re using asynchronous signal-safe functions in signal handlers like `exit()`, `_exit()`, `write()`, `signal()`
+- `<stdarg.h>`
+  - Variable arguments- working w/ functions that take a list of arguments- aka definition file for va_list
+  - Critical items
+    - `va_list`
+      - Type to hold the argument list state
+    - `va_start`
+      - Initializes va_list for processing arguments
+    - `va_arg`
+      - Retrieves next argument in a list
+    - `va_end`
+      - Cleans up va_list
+    - `va_copy`
+      - Copies state of va_list to another variable
+- `<stddef.h>`
+  - Header that’s usually included in other C standard library headers
+  - Critical typedefs and macros
+- `<stdio.h>`
+  - Input/output- functions and macros to handle IO operations- reading/writing to files, standard IO streams, interacting w/ devices, etc
+  - Critical items
+    - File operations
+      - `fopen()`, `fclose()`, `fread()`, `fwrite()`, `fseek()`, `ftell()`
+    - Formatted input/output
+      - `printf()`, `scanf()`
+      - `fprintf()`, `fscanf()`
+        - Writes and reads from a specified file
+    - `sprintf()`, `sscanf()`
+      - Writes and reads to a buffer/string
+    - Character input/output
+      - `getchar()`, `putchar()`
+      - `getch()`, `putch()`
+        - Some implementations support these functions to read/write without buffering
+    - End-of-file handling
+      - `EOF`- constant indicating the end of a file, or error in IO operations
+    - Buffered IO operations
+      - `setbuf()`, `setvbuf()`, `fflush()`
+    - Standard IO streams
+      - `stdin`, `stdout`, `stderr`
+      - Standard streams for input, output, and error output
+      - Predefined file pointers in C- points to console’s input and output
+    - Error handling
+      - `perror()`, `clearerr()`, `feof()`, `ferror()`
+    - Temporary files
+      - `tmpfile()`, `tmpnam()`
+    - File control
+      - `remove()`, `rename()`
+- `<stdlib.h>`
+  - “General utilities”
+    - Memory allocation
+    - Process control
+    - Conversion of data types
+    - Random number generation
+    - Environment management
+  - Critical items
+    - Memory management
+      - `malloc()`, `calloc()`, `realloc()`, `free()`
+    - Process control
+      - `exit()`
+  - Terminates the program w/ specified exit status
+    - `abort()`, `atexit()`, `system()`
+    - Conversion functions
+      - `atoi()`
+  - String (ascii) to integer
+    - `atol()`
+  - String to long integer
+    - `atoll()`
+  - String to a long long integer
+    - `strtol()`
+  - String to a long integer w/ error checking for invalid input
+    - `strtoul()`
+  - String to an unsigned long integer
+    - `strtod()`
+  - String to a double-precision floating-point number
+    - Random number generation
+      - `rand()`, `srand()`
+    - Environment management
+      - `getenv()`
+  - Retrieves value of environment variable
+    - `putenv()`
+  - Sets/modifies value of environment variable
+    - Other utility functions
+      - These are math related, but exist here as general utilities since they don’t involve complex math
+      - `abs()`, `labs()`, `llabs()`
+  - Absolute value of integer, long, long long
+    - `div()`, `ldiv()`, `lldiv()`
+  - Computes quotient and remainder of int, long, long long
+- `<string.h>`
+  - String handling- performing string operations
+  - Critical items
+    - `strlen()`
+      - Returns length of null-terminated string
+    - `strcpy()` `strncpy()`
+      - Copies null-terminated string, w/o and w/ specified number of characters
+    - `strcat()` `strncat()`
+      - Concatenates null-terminated string to another w/o and w/ specified number of characters
+    - `strcmp()` `strncmp()`
+      - Compares two null-terminated strings w/o and w/ specified number of characters
+    - `strchr()` `strrchr()`
+      - Locates first and last occurrence of a character in a string respectively
+    - `strstr()`
+      - Locates first occurrence of a substring in a string
+    - `memcpy()` `memmove()` `memset()` `memcmp()`
+      - Good to know that these functions exist here instead of in general utilities
+    - `strtok()`
+      - Breaks string into sequence of tokens based on delimitters
+- `<time.h>`
+  - Date and time- measuring intervals, manipulating/formatting time, ettc
+  - Critical items
+    - `time()`, `clock()`, `difftime()`, `mktime()`, `localtime()`, `gmtime()`, `strftime()`, `asctime()`, `ctime()`
+      - Various time related functions…
+    - `sleep()`
+      - Oh man
+      - Suspends execution of the program for a specified number of seconds
+    - Struct tm
+      - Represent time components
+      - Sec, min, hour, day of the month, month, years since 1900, day of the week, day of the year, daylight saving time flag
+      - `CLOCKS_PER_SEC`
+        - Ticks per second
+  - `__TIME__`, `__DATE__`
+    - It’s weird, but this C standard header doesn’t provide wrappers for these compiler macros
+    - These macros are compiler exclusive
+    - C95
+      - Old effort to try and integrate more character types into char type before Unicode took over
+- `<wchar.h>`
+  - Wide character handling
+- `<wctype.h>`
+  - Wide character classification
+
+## 1999: C99
+
+- `<complex.h>`
+  - Complex number arithmetic (imaginary numbers)
+- `<fenv.h>`
+  - Floating-point environment- provides exceptions and rounding modes
+  - `FE_TONEAEREST`, `FE_UPWARD`, `FE_DOWNWARD`, `FE_TOWARDZERO`, etc
+- `<stdint.h>`
+  - Fixed-width integer types
+  - Uint8_t, etc that we know and love
+- `<inttypes.h>`
+  - Extension to stdint.h providing macros for formatting and printing fixed-width integer types defined in stdint.h
+  - Format macros
+    - `PRId8`, `RPIu8`, `PRIx8`, etc
+    - So format specifies for each width-specific integer type
+  - Integer type limits
+    - `INT8_MIN`, `INT32_MIN`, etc
+  - Macros for integer type size checking
+    - `INT8_WIDTH`, `UINT16_WIDTH`, etc
+- `<stdbool.h>`
+  - Boolean types
+  - `bool` type, `true`, `false`
+- `<tgmath.h>`
+  - (exists in C99, but deprecated in C11)
+  - Attempted to implement type generic math
+- Expanded on:
+  - `<math.h>` expansion
+    - Functions
+      - `fmod(x, y)`
+  - Remainder of x/y as floating-point
+    - `round(x)`
+  - Nearest integer to x
+  - Halfway cases rounded away from 0
+    - `fma()`, `fmax()`, `fmin()`, `fpow()`, `trunc()`, `ilogb()`, `scalbn()`, `nextafter()`, `rem()`, `copysign()`
+    - Constants
+      - `M_PI` = pi
+      - `M_E` = e
+      - `M_LN2` = Ln(2)
+      - `M_LN10` = Ln(10)
+      - `M_LOG2E` = Base 2 log of e
+      - `HUGE_VAL`
+        - Constant representation of +infinity for floating types
+  - `<stdio.h>` expansion
+    - Functions
+      - `snprintf()`
+        - `sprint()`, but limits number of characters that can be written
+      - `vsprintf()`
+        - `snprintf()` that takes variable number of arguments
+      - `vscanf()`, `vfscanf()`, `vsscanf()`
+        - Variable list of arguments for input operations
+      - New format specifiers
+        - `%a`
+          - Printing/scanning floating-point numbers in hex
+        - `%z`
+          - Printing size_t values
+        - `%ll`
+          - Printing long long types
+  - `<stdlib.h>` expansion
+    - `aligned_alloc()`
+      - Allocates memory w/ specified alignment
+    - `calloc()`
+      - Existed before C99, but only in C99 it’s been clarified that it allocates and zeros memory
+    - `atof()`, `atoi()`, `atoll()` and variations
+      - Further standardized to convert strings into various types
+    - `rand()`, `srand()` expanded
+    - `strtol()`, `strtoll()`, `stroul()`, `strtoull()`
+      - Functions for string to number conversion
+    - Sorting and searching
+      - `qsort()`
+        - Generic quick sort implementation
+      - `bsearch()`
+        - Generic binary search implementation
+
+## 2011: C11
+
+- Expansions
+  - Added static_assert, anonymous structs/unions
+- `<stdalign.h>`
+  - Provides macros and facilities for type alignment requirements in C
+- `<stdatomic.h>`
+  - Atomic operations
+- `<threads.h>`
+  - Multi-threading
+- `<uchar.h>`
+  - Unicode character types
+
+## 2017/18: C17 / C18
+
+- No new headers
+- Just bugfix/clarification release
+
+## 2023: C23
+
+- Expansions
+  - `<string.h>`
+  - Enhanced functions
+    - `<stdio.h>`, `<stdlib.h>`, `<assert.h>`, etc
+- `<stdckdint.h>`
+  - Checked integer arithmetic
+
+## Form Factors
+
+- C standard library implementations vary w/ compiler (gcc (MinGW for Windows), clang, MSVC (Microsoft visual C++), ARM gcc toolchain, etc) and use different C library implementations, and by the compiler version and the version of C supported
+- Glibc
+  - GNU systems (Linux)
+- Musl
+  - Lighweight libc for static linking / embedded Linux
+- Newlib
+  - Lightweight libc for embedded systems (ARM MCUs, etc)
+- Uclibc
+  - Small C library for embedded Linux systems
+- Microsoft CRT
+  - “C runtime”
+  - C library on Windows

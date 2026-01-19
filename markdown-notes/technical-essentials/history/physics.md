@@ -1,0 +1,112 @@
+# Physics History
+
+- History of physics notes
+- ...Mainly w/ respect to computer engineering to build on the CE narrative
+
+## Index
+
+- [Index](#index)
+- [A Rough Timeline](#a-rough-timeline)
+
+## A Rough Timeline
+
+- _1600s_
+  - **Foundation of electromagnetism**
+    - William Gilbert coins the word "electricus", and studies electromagnetism
+- _1700s_
+  - **Early understanding of -/+ charge**
+    - Charles Francois du Fay
+  - **Introduction of electrical potential difference**
+    - Benjamin Franklin
+    - Eventually leads to "voltage"
+  - **Nerve impulses are electric in nature**
+    - Luigi Galvani
+    - Leads to voltaic cell
+  - **Power**
+    - James Watt
+    - Introduced "watt" as a unit of power, and improved steam engine for efficiency
+- _1800s_
+  - **Voltage**
+    - Alessandro Volta
+    - "volt" as a unit of electrical potential- the source of steady current
+  - **Electromagnetism**
+    - Hans Christian Orsted
+    - Electric current creates magnetism- electromagnetism as a concept formalized
+  - **Current, more on electromagnetism**
+    - Andre Marie Ampere
+    - Defines relationship between current and magnetic fields
+    - "ampere" as a unit of current
+  - **Ohm's law**
+    - Georg Simon Ohm
+    - Invents Ohm's law, and "ohm" as a unit of resistance
+  - **Electromagnetic induction**
+    - Michael Faraday
+    - Work that leads to motors, generators, transformers
+  - **Electromagnetic relay**
+    - Joseph Henry
+    - Early switching logic- the foundation of digital circuits
+  - **Joule's law**
+    - James Prescott Joule
+    - Relates energy and current, and how electrical energy generates heat
+  - **Maxwell's equations**
+    - James Clerk Maxwell
+    - _Treatise on Electricity and Magnetism_ written in 1873 together w/ Michael Faraday
+    - Unifies electricity, magnetism, light
+    - Writes equations that define all electronics
+  - **Diode beginning**
+    - Karl Ferdinand Braun
+    - Discovers rectification at a metal-semiconductor contact- first step towards the diode
+  - **Incandescent lamp**
+    - Thomas Edison
+    - Observes thermionic effects, which leads to vacuum tube creation
+  - **Maxwell validation**
+    - Heinrich Hertz
+    - Proves existence of electromagnetic waves
+    - Basis for wireless communication
+  - **Electron discovery**
+    - Heinrich Hertz / JJ Thompson
+    - "Electron" coined, originating from a Greek word
+  - **Maxwell's equations reformaulation**
+    - Oliver Heaviside
+    - Simplified circuit analysis and wave propagation
+  - **AC transmission**
+    - George Westinghouse & Nikola Tesla
+    - Allowed for long-distance electrical systems via AC power transmission
+  - **X-rays**
+    - Willhelm Rontgen
+    - Expands electromagnetism and vacuum tube understanding
+- _1900s_
+  - **Vacuum tube diode**
+    - John Ambrose Fleming
+    - Converts AC to DC w/ the first electronic rectifier
+  - **Triode vacuum tube**
+    - Lee De Forest
+    - Allows for amplification and digital switching
+    - Paved the way for the first true electronic device
+  - **Feedback amplifiers, communication theory**
+    - Harold Black, Nyquist, others
+    - Signal processing and stability theory
+  - **Wave-particle duality**
+    - Louis de Broglie
+    - Foundation for quantum mechanics, allowing for semiconductor theory
+  - **Communication and noise theory**
+    - Nyquist and Shannon
+    - Basis for information theory, digital encoding, and data transmission
+  - **Bell Labs**
+    - "decibel" as a unit established
+    - Standardized measurement of signal power ratios
+  - **Transistor**
+    - By John Bardeen, Walter Brattain, and William Shockley at Bell Labs
+    - Vacuum tubes replaced to give rise to modern electronics
+  - **IC**
+    - Jack Kilby & Robert Noyce
+    - Invention of IC chips
+  - **Laser**
+    - Theodore Maiman
+    - Laser invented and later used for communication and storage
+  - **Microprocessors, VLSI**
+  - **Quantum mechanics**
+    - Allowed for nano-scale transistors and semiconductor miniaturization
+- _2000s_
+  - **Quantum computing, photonics, spintronics research**
+    - Pushing past electron-based computing
