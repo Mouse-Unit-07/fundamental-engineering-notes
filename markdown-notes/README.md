@@ -9,7 +9,7 @@
   - Share ideas w/ others
   - Avoid making the same mistakes that caused us pain
 
-# Key/Essential Books
+## Key/Essential Books
 
 - **Learning**
   - _Make It Stick: The Science of Successful Learning_
