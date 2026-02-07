@@ -11,7 +11,8 @@
 - [Overview](#overview)
 - [.o vs .obj Files](#o-vs-obj-files)
 - [Associated Tools](#associated-tools)
-- [CMake Commands](#cmake-commands)
+- [Build Commands](#build-commands)
+- [Commands and Arguments](#commands-and-arguments)
 - [Do’s and Don’ts](#dos-and-donts)
 - [General Concepts](#general-concepts)
 - [Ideal Directory Structure](#ideal-directory-structure)
@@ -85,29 +86,81 @@
   - Can be integrated into a CI/CD pipeline to check software for style and errors
   - CppCheck available for C/C++
 
-## CMake Commands
+## Build Commands
 
 - `cmake -G“Ninja” . -Bbuild`
   - Creates make files as specified in CMakeLists file(s)
 - `cmake --build build`
   - Creates an executable using the build files created using above `cmake -G“Ninja” . -Bbuild`
 
+## Commands and Arguments
+
+- `add_library(my_lib STATIC)`
+  - Creates a library build target
+  - `STATIC`
+    - Static library- .a, .lib
+  - `PUBLIC`
+    - Shared library- .so, .dll
+  - `INTERFACE`
+    - Header-only / usage-only target
+  - `OBJECT`
+    - Object library (not linkable)
+- `target_include_directories(my_lib PRIVATE src/)`, `target_compile_definitions()`, `target_compile_options()`, `target_link_libraries()`
+  - Add include paths, compile definitions, compile flags, libraries to link to respectively
+  - Use `PRIVATE`, `PUBLIC`, `INTERFACE` to define the usage requirements
+  - `PRIVATE`
+    - Arguments (include paths, compile flags, etc) do not propagate to dependents (other targets that link to this target)
+  - `PUBLIC`
+    - Arguments propagate to dependents
+  - `INTERFACE`
+    - Only used by dependents, and not used to build this target
+    - ...You don't build a target w/ just headers anyway
+
 ## Do’s and Don’ts
 
 - **Don’ts**
-
-  - Global functions (link_directories, include_libraries)
-    - ![global-functions](_images/cmake/global-functions.png)
-    - ![global-build-configuration-commands](_images/cmake/global-build-configuration-commands.png)
-    - ![global-dependency-and-path-functions](_images/cmake/global-dependency-and-path-functions.png)
-    - ![global-build-rules-and-installation](_images/cmake/global-build-rules-and-installation.png)
-    - ![global-utility-commands](_images/cmake/global-utility-commands.png)
+  - Global state-modifying functions
+    - These affect all subdirectories, and make finer control difficult- use target-based alternatives instead
+    - `include_directories()`
+    - `link_directories()`
+    - `add_compile_options()`
+    - `add_compile_definitions()`
+    - `add_definitions()`
+    - `set(CMAKE_CXX_FLAGS "-")`
+  - Global dependency path functions
+    - `find_package()`
+      - Use `target_link_libraries()` instead
+    - `find_library()`
+      - Import targets instead
+    - `find_path()`
+      - Avoid modifying global include paths
+    - `find_program()`
+      - Use per-target dependency management
+  - Global build rules and installation
+    - `install(PROGRAMS _)`
+      - Use `install(TARGETS _)`
+    - `install(DIRECTORY _)`
+      - Use modular install rules
   - Unneeded PUBLIC requirements (-Wall, etc)- make them PRIVATE instead
   - GLOB files- Make/other tools won’t know if you added files without re-running CMake
   - Link to built files directly- always link to targets instead
   - Never skip PUBLIC/PRIVATE when linking- causes all future linking to be keyword-less
-
 - **Do’s**
+  - Global state-modifying functions
+    - `target_include_directories()`
+    - `target_link_directories()`
+    - `target_compile_options()`
+    - `target_compile_definitions()`
+  - Global build configuration commands
+    - `project()`
+      - Minimize global config changes
+    - `cmake_minimum_required()`
+    - `set(CMAKE_BUILD_TYPE "-")`
+  - Global utility commands
+    - `add_subdirectory()`
+      - Modularize properly, and prefer `FetchContent()` if possible
+    - `include()`
+      - Minimize `include()` to modularize properly
   - Treat CMake as code- clean and readable, following software design principles
   - Think in targets- create (IMPORTED) INTERFACE target for anything that should stay together
   - Export your interface- you should be able to run from build or install
@@ -125,7 +178,7 @@
   - What CMake uses to organize its build system to associate processes to
   - Target types include: executable, library, custom command or artifact like documentation
   - Created using:
-    - `add _exectuable`
+    - `add_exectuable`
     - `add_library`
     - `add_custom_target`
 - Functions vs macros
