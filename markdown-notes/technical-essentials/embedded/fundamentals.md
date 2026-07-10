@@ -205,7 +205,7 @@
     - If you `memcpy()`, endianness isn't taken into consideration- bytes on memory are copied as they are
     - Ie, the result of a `memcpy()` of all elements on a 32-bit array to an 8-bit array will vary according to the target architecture
   - 3: when programs are written to circumvent the normal type system
-    - ...if you do something weird w/ Union/casing to allow an object to be referenced according to a different data type from which it was created, results will vary by target architecture
+    - ...if you do something weird w/ Union/casting to allow an object to be referenced according to a different data type from which it was created, results will vary by target architecture
 
 ## Event vs Data Driven Systems
 

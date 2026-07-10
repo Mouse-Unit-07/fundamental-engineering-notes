@@ -103,7 +103,7 @@
   - Undermines the people that work for them by belittling their mistakes, worst case redoing their work without warning
   - Takes all the credit of work instead of acknowledging the strengths of team members
   - Can't let anyone else get any glory without claiming some of it for themselves
-  - Convinced their always a part of good ideas, and never a part of bad ideas unless they know the ideas'll fail
+  - Convinced they're always a part of good ideas, and never a part of bad ideas unless they know the ideas'll fail
   - Will point out your ignorance if you don't know something
   - Rigid about how things should be done, and closed off to new ideas they didn't come up with
   - Feel threatened in response to complaints about systems they built, or their past technical decisions
@@ -347,7 +347,7 @@
 
 > Listening is a precursor to empathy, which is one of the core skills of a quality manager. You need this skill wherever your career takes you: even principal engineers with no reports need to be able to hear what others are really saying. So when your mentee is speaking to you, pay attention to your own behavior. Are you spending all your time thinking about what you want to say next? Are you thinking about your own work? Are you doing anything other than listening to the words coming out of his mouth? If so, you're not listening well.
 > (...)
-> People are not good at saying precisely what they mean in aa way that others can exactly understand. We have yet to achieve Borg hive mind or Vulcan mind meld, so we're constantly pushing complex ideas through the eye of the needle of language. And language is not something that most engineers have mastered in nuance and interpretation. So listening goes beyond hearing the words your mentee is saying. When you're face to face with another person, you also have to interpret his body language and the way he's saying those words. Is he looking you in the eye? Is he smiling? Frowning? Sighing? These small signals give you a clue as to whether he feels understood or not.
+> People are not good at saying precisely what they mean in a way that others can exactly understand. We have yet to achieve Borg hive mind or Vulcan mind meld, so we're constantly pushing complex ideas through the eye of the needle of language. And language is not something that most engineers have mastered in nuance and interpretation. So listening goes beyond hearing the words your mentee is saying. When you're face to face with another person, you also have to interpret his body language and the way he's saying those words. Is he looking you in the eye? Is he smiling? Frowning? Sighing? These small signals give you a clue as to whether he feels understood or not.
 >
 > Camille Fournier in _The Manager's Path_
 

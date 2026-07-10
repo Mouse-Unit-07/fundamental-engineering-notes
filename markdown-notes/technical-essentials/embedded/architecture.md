@@ -169,7 +169,7 @@
 
 ## RISC vs CISC
 
-- One instruction per cycle vs multiple
+- One operation per cycle vs multiple (each instruction performs multiple operations)
 - RISC machines require more memory due to needing more instructions per task, but CISC machines take longer to execute in exchange for using less memory
 - CISC came first, and then came RISC
 - In the 1980s RISC vs CISC was a battle, and by 1990s it was clear that neither in their purest forms were optimal, so designs that merged the two were developed
@@ -206,8 +206,10 @@
 
 - Strong
   - Speed-up achieved on a multiprocessor without increasing the size of the problem
+  - So adding more processors to handle the same workload faster
 - Weak
   - Speed-up on a multiprocessor that increases the size of the problem proportionally to the increase in the number of processors
+  - Adding more processors to handle a larger workload to increase overall processing
 
 ## Symmetric Multi-Processing
 

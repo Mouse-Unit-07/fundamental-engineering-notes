@@ -167,7 +167,7 @@
       - Copies state of va_list to another variable
 - `<stddef.h>`
   - Header that’s usually included in other C standard library headers
-  - Critical typedefs and macros
+  - Critical typedefs and macros, including `NULL`
 - `<stdio.h>`
   - Input/output- functions and macros to handle IO operations- reading/writing to files, standard IO streams, interacting w/ devices, etc
   - Critical items

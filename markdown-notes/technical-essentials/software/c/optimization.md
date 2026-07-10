@@ -10,9 +10,11 @@
 - [Enabling Optimization](#enabling-optimization)
 - [Flags](#flags)
 - [Increment vs Decrement in For Loop](#increment-vs-decrement-in-for-loop)
+- [Inline](#inline)
 - [Loop Unrolling, Reassociation](#loop-unrolling-reassociation)
 - [Optimization Types](#optimization-types)
 - [Repetitive Floating-Point Comparisons](#repetitive-floating-point-comparisons)
+- [Safely Enable Optimization](#safely-enable-optimization)
 - [Steps](#steps)
 
 ## Branch Prediction
@@ -73,6 +75,11 @@
 
 - Comparison against 0 is faster than comparing to a numerical value, so it's ever so slightly faster to decrement in a for loop
 - ...Readability is always priority, but if it doesn't matter then decrementing is good practice
+
+## Inline
+
+- The presence/absence of `inline` keyword doesn't guarantee that there will or will not be inlining done by the compiler
+- At `-O0`, most compilers don't perform inlining even if you add the keyword
 
 ## Loop Unrolling, Reassociation
 
@@ -210,6 +217,21 @@
 - Spamming relational operators on floating point values is inefficient/redundant, because of the assembly instructions that floating-point comparisons break down to
   - Constantly comparing variables to 0.0, generating floating point constant 0.0
 - Try to minimize if possible
+
+## Safely Enable Optimization
+
+- If your code does not:
+  - Have room for undefined behavior
+  - Have variables missing the `volatile` keyword
+  - Have room for race conditions
+  - Perform unsafe casting between types
+  - Have uninitialized variables
+  - Have implicitly order sensitive memory operations
+  - Have empty loops
+  - Have order sensitive floating-point arithmetic (where the math would be associative if computers could perform perfect floating-point math)
+  - Have function argument evaluation order sensitive code
+  - Have code dependent on code processing time found empirically
+- ...Then you're good to go to enable optimization
 
 ## Steps
 

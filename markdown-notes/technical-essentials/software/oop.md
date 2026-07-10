@@ -21,7 +21,7 @@
 ## 5 Pillars of OOP
 
 - Encapsulation
-  - Bundling data/methods into classes to enforce modularity/security/portability
+  - Bundling data/methods into classes to enforce modularity/security/portability, while preventing direct access to underlying implementation
 - Abstraction
   - Hiding complex implementation details and exposing just essential features via interfaces / abstract classes
 - Inheritance

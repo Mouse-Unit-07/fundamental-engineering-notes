@@ -55,9 +55,9 @@
 ## Asynchronous Programming vs Multithreading
 
 - Multithreading
-  - Having an OS or API manage multiple lines of execution at the same time via synchronization techniques (methods that lock shared resources)
+  - Having an OS or API manage multiple lines of execution at the same time via synchronization techniques (methods that can lock shared resources)
 - Asynchronous programming
-  - Managing multiple tasks with/without locking resources
+  - Managing multiple tasks with/without locking resources (just as long as there's no blocking while waiting)
   - Could utilize multithreading
 
 ## Concurrency

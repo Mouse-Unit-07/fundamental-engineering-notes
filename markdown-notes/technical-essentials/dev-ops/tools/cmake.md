@@ -16,6 +16,7 @@
 - [Do’s and Don’ts](#dos-and-donts)
 - [General Concepts](#general-concepts)
 - [Ideal Directory Structure](#ideal-directory-structure)
+- [Make vs Ninja](#make-vs-ninja)
 - [Migrating to CMake](#migrating-to-cmake)
 - [Minimal CMakeLists.txt File](#minimal-cmakeliststxt-file)
 - [Project Creation](#project-creation)
@@ -224,6 +225,16 @@
 ## Ideal Directory Structure
 
 - ![ideal-directory-structure](_images/cmake/ideal-directory-structure.png)
+
+## Make vs Ninja
+
+- Make and Ninja are both programs that take Makefiles and .ninja files respectively to build a project
+- Make
+  - A program that reads Makefiles and executes commands only when necessary (checks file timestamps for changes)
+  - Makefiles were the goto build scripts to write before CMake came along
+- Ninja
+  - Just like Make, but shaved of things like variables, conditionals, loops, macros, implicit rules, etc that made Make slow
+  - W/ CMake handling build orchestration, the actual build process can be made faster w/ Ninja
 
 ## Migrating to CMake
 

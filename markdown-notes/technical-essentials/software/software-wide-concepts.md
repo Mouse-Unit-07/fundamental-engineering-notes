@@ -140,9 +140,11 @@
 
 ## Free Field Language
 
-- Programming languages where code placement doesn't matter- non-position.column dependent/sensitive
-  - C, Python, Java
+- Aka, "free-form" language
+- Programming languages where code placement doesn't matter- non-position/column dependent/sensitive
+  - C, Java
 - "Fixed field languages" demand specific column positions
+  - Python
   - Columns in FORTRAN have specific meaning
 
 ## Halting Problem
@@ -402,7 +404,7 @@
 - Script
   - A script is a set of human-readable commands that are interpreted by an interpreter
   - Python is a "scripting language", and a "programming language"
-  - Others include Perl, Python, Ruby
+  - Others include Perl, Ruby
 - Program
   - In contrast to a script, a program can refer to compiled software as well as interpreted software
   - C/C++, Pascal, etc are "programming languages"
@@ -436,7 +438,7 @@
   - A statement is a line of code that executes a task
     - Ex:
       - `int x = 10;`
-      - `if (x == 10) { y++};`
+      - `if (x == 10) { y++ };`
   - An expression is a combination of values, variables, operators, and/or function calls to produce a single value
     - Ex:
       - `(x == 10)`, `5 + 3`, etc

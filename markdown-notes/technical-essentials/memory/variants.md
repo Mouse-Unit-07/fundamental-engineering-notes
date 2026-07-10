@@ -17,7 +17,7 @@
 ## Disk vs Disc
 
 - Disk refers to large storage device (disk drive, etc)
-  - Aka, large magnetic disks before SSDs came around
+  - Aka, large magnetic disks, SSDs, etc
   - RAID
     - "redundant arrays of inexpensive disks"
     - An organization of disks consisting of small cheaper disks to improve performance and reliability
