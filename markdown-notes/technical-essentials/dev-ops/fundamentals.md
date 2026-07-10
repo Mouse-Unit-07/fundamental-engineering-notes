@@ -20,11 +20,11 @@
 - [Finding Bugs](#finding-bugs)
 - [Generalist vs Specialist](#generalist-vs-specialist)
 - [Greenfield vs Brownfield](#greenfield-vs-brownfield)
-- [Hypothesis Driven Development](#hypothesis-driven-development)
 - [Iteration Retrospective](#iteration-retrospective)
 - [Iterative vs Waterfall Development](#iterative-vs-waterfall-development)
 - [Law of Parsimony](#law-of-parsimony)
 - [Lead Time vs Processing Time](#lead-time-vs-processing-time)
+- [Lean, Agile, Scrum](#lean-agile-scrum)
 - [Manufacturing/Technology Value Stream](#manufacturingtechnology-value-stream)
 - [Monolith vs Microservice](#monolith-vs-microservice)
 - [Myths of Industrial Safety](#myths-of-industrial-safety)
@@ -34,7 +34,6 @@
 - [Release Patterns](#release-patterns)
 - [Requirements Analysis](#requirements-analysis)
 - [RUP](#rup)
-- [Scrum Methodology](#scrum-methodology)
 - [Security](#security)
 - [System Engineering](#system-engineering)
 - [Telemetry](#telemetry)
@@ -44,6 +43,7 @@
 - [Vaporware](#vaporware)
 - [WIP](#wip)
 - [Workload](#workload)
+- [XX-Driven Development](#xx-driven-development)
 
 ## Amdahl's Law
 
@@ -163,11 +163,6 @@
 - Fresh grass is easier to architect and build on than polluted unstable ground
 - Transforming a brownfield project is significantly harder than generating a clean greenfield project, but it’s possible w/ the right steps and outlooks
 
-## Hypothesis Driven Development
-
-- “practice of making product or feature decisions based on a specific hypothesis, testing it, and using the results to guide what gets built, changed, or discarded”
-- Allows for evidence-based development to minimize unvalidated features
-
 ## Iteration Retrospective
 
 - Assembling a team after each iteration to consider how things went, and how they can be improved
@@ -189,12 +184,36 @@
 
 - Aka Occam’s Razor
 - > The simplest explanation is usually the correct one
+- > Multiplicity ought not be posited without necessity
 
 ## Lead Time vs Processing Time
 
 - ![lead-process-time](_images/fundamentals/lead-process-time.png)
 - Both lead time and processing time are used to measure performance in value streams
 - Customers experience lead time- reducing lead time is a function of making communication and engineering workflow smooth
+
+## Lean, Agile, Scrum
+
+- Lean came first, then Agile, then Scrum
+- Lean
+  - A philosophy to eliminate waste and maximize customer value, and continuously improve
+  - "Do only what creates value"
+  - Kaizen
+    - Aka, continuous improvement
+- Agile
+  - A software development philosophy to quickly adapter to change through collaboration and frequent feedback
+  - "Respond to change instead of following a rigid plan"
+  - Building small features, getting customer feedback, improve, repeat
+- Scrum
+  - An Agile framework that enforces short iterations w/ defined roles/ceremonies
+  - Sprint
+    - Time-boxed iteration (1-4 weeks) during which a set of backlog items is completed and made potentially shippable
+  - Roles
+    - Product owner, scum master, development team
+  - Events
+    - Sprint planning, daily standup, sprint review, sprint retrospective
+  - Artifacts
+    - Product backlog, sprint backlog, increment
 
 ## Manufacturing/Technology Value Stream
 
@@ -283,13 +302,6 @@
     - Develop to release
   - Transition
     - Late-stage activities that aren’t done iteratively- deployment into a data center, user training, etc
-
-## Scrum Methodology
-
-- Scrum is an Agile framework used to develop, deliver, and sustain complex products
-- Emphasizes collaboration, iterative progress, and adaptive planning
-- Sprint
-  - Time-boxed iteration (1-4 weeks) during which a set of backlog items is completed and made potentially shippable
 
 ## Security
 
@@ -485,3 +497,34 @@
 
 - A set of programs that run on a computer (either actual user programs, or an engineered mix for testing)
 - Usually there's a specification for the frequency to run each each program too
+
+## XX-Driven Development
+
+- There're a bunch of phrases that sound like TDD now, where each can play a role in development:
+- Hierarchy
+  - Business problem
+  - DDD - understand the business domain
+  - BDD / ATDD - define expected behavior
+  - TDD - implement each behavior safely
+  - MDD - (optional) generate code from models
+  - HDD - validate whether the solution works
+- Domain-driven development
+  - Business domain drives development
+  - Where software is built around the business domain (the context in which the product is used) instead of around the technologies used to implement it
+- Behavior-driven development
+  - Behavior (from a user's perspective) drives development
+  - A top-down approach where development steps are defined by the steps a user might go through in the product
+  - Often done w/ Cumber (test running tool) Gherkin (specification language for writing tests)
+- Acceptance Test-driven development
+  - Acceptance criteria drives development
+  - Where customer acceptance tests are agreed on before development starts
+- Test-driven development
+  - Unit tests drive development
+  - Where failing tests are written before production code
+- Model-driven development
+  - Models drive development
+  - Using MATLAB/Simulink, Stateflow, or other UML tools to draw UML diagrams that are used to generate code
+- Hypothesis-driven development
+  - Results of experiments performed given hypothesis are used to drive development
+  - When there isn't a clear set of customer requirements, HDD can be used to define what the next goals should be
+  - Allows for evidence-based development to minimize unvalidated features

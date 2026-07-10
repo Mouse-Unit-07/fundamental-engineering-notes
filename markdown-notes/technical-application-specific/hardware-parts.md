@@ -51,6 +51,7 @@
 - [Solenoid](#solenoid)
 - [SPDT CMOS Switch](#spdt-cmos-switch)
 - [SPLD, CPLD, FPGA](#spld-cpld-fpga)
+- [TMR](#tmr)
 - [Transformer](#transformer)
 - [Transient Voltage Suppressors](#transient-voltage-suppressors)
 - [Video Connections](#video-connections)
@@ -364,6 +365,7 @@
 
 - Hall effect is where voltage is induced across a conductor when a magnetic field is applied perpendicular to the conductor
 - When a conductor penetrates through a magnetic field plane, the Lorentz force (caused by the combination of magnetic and electric forces acting on the charges moving through the conductor) pushes the particles in the conductor to one side across the short side of the conductor, and causes a potential difference across the cross section of the conductor
+- ...Might become obsolete due to TMR sensors
 
 ## High Side Current Monitor
 
@@ -640,6 +642,14 @@
 - FPGA
   - Uses LUTs (“look-up tables”) for logic implementation
   - Numerous programmable interconnects to route signals
+
+## TMR
+
+- "tunnel magnetoresistance" sensors
+- The next-generation contactless technology where spintronics (quantum tunneling through insulation barriers) is used to implement sensors that are more sensitive and durable
+- Applications include automotive, robotics, brushless motors, current sensors, medical equipment, etc
+- Allows for thumb sticks with low drift, low power, no contact wear, and high resolution
+- In exchange, they're more expensive to build
 
 ## Transformer
 

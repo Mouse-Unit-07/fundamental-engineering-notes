@@ -123,7 +123,7 @@ argv[3] = NULL   // argv[argc] is guaranteed to be NULL or 0
 ## Assignment Operator
 
 - Assignment statement is an expression too- it evaluates to the value assigned
-- That’s why this is legal: int x = y = z = 6; (but bad practice)## Compiler Defined Constants / Functions
+- That’s why this is legal: int x = y = z = 6; (but bad practice)
 
 ## Breaking long lines
 
@@ -440,10 +440,11 @@ int (*get_operation(void))(int, int) {
     - Evaluates from left to right, where the final value is the value of the rightmost expression
     - Comma used to declare multiple variables in a single line is not a comma operator (order of evaluation isn’t defined)
 - K & R admitted that some operator precedence is "wrong" and unintuitive:
-  - `.` is higher than `*`
-    - That's why the `->` operator was created
-  - `[]` is higher than `*`
-  - Function `()` is higher than the `*` to dereference a function pointer
+  - Dereference operator `*` has low precedence
+    - `.` is higher than `*`
+      - That's why the `->` operator was created
+    - `[]` is higher than `*`
+    - Function `()` is higher than the `*` to dereference a function pointer
   - `==` and `!=` higher precedence than assignment
   - Arithmetic higher precedence than shift
   - `,` has lowest precedence of all operators
@@ -519,7 +520,7 @@ int (*get_operation(void))(int, int) {
     - The code might still work if the compiler translates your code to more instructions to translate the 4-byte access into a byte access
     - Or it might fail w/ a hard fault
 - Arrays
-  - &arrayName[0], arrayName, &arrayName are all the same- they’re both addresses to the first element in an array
+  - &arrayName[0], arrayName, &arrayName are all the same- they’re all addresses to the first element in an array
 - Pointer declaration asterisk `*`
   - Putting it on the datatype is nice to clarify that a variable is a pointer
   - Putting it on the variable name is nice when in need of multiple pointer declarations per line
@@ -564,10 +565,11 @@ int (*get_operation(void))(int, int) {
 
 ## sizeof
 
-- Using `sizeof` will tell you how many bytes is allocated to a particular piece of reference
+- `sizeof` is a compile-time operator (not a function, macro, or anything else)
+- Using `sizeof` will tell you how many bytes is allocated to a variable, or the number of bytes that a type requires
 - `size_t const TOTAL_ELEMENTS = (sizeof array) / (sizeof array[0])`
   - This is bad practice, since array elements don’t have to be constrained to indices (elements could be less than a byte to have all elements next to each other contiguously)
-  - The size of a pointer isn’t the size of an entire array either- it’s just the memory allocated for the pointer to exist
+  - Only works if `array` isn't a pointer (size of a pointer isn’t the size of an entire array- it’s just the memory allocated for the pointer)
   - Takeaway: `sizeof` provides the number of bytes allocated for a variable (whether it’s number of bytes allocated for a pointer, for a variable pointing to the first element in an array, or the entire array)
 - Using macros
   - #define TOTAL_ELEMENTS(a) (sizeof (a) sizeof (a)[0])
@@ -582,7 +584,7 @@ int (*get_operation(void))(int, int) {
     - `#define MY_SIZEOF(type) ((size_t)(((char*)(&(type*)0[1])) – (char*)(&(type*)0[0])))`
     - But this still fails if the null pointer indexing and arithmetic results in an invalid memory access
     - Also fails when you pass it a variable instead of a type
-  - It’s an irreplaceable compile time macro/operator- can’t implement it
+  - It’s an irreplaceable compile time operator- can’t implement it
 - Struct
   - If you call `sizeof` on a struct (not a pointer to a struct) you get the total number of bytes of the elements in the struct, but the tricky caveat is that:
     - Padding is added after each element in the struct to let the next element be on the right boundary
@@ -613,7 +615,7 @@ int (*get_operation(void))(int, int) {
 - Data is stored into structs for easy manipulation
 - Should not include pointers to buffers that are accessible outside of the struct
   - Should instead include copies and other independent data
-    - You can initialize structs by using “thing = { 0 }”
+    - You can initialize structs by using `thing = { 0 }`
     - You can declare structs without tags or typedefs too
 - Could do: struct { ... } var1, var2; if a struct isn’t going to be reused
   - Can also initialize just a part of a struct w/ a curly brace enclosed list- the rest of the elements will be initialized to 0
@@ -628,11 +630,26 @@ int (*get_operation(void))(int, int) {
   - Optional tag to name the struct type
   - Member list- zero or more declarations
   - Declarators to declare variables or typedefs declared w/ the defined type
+- Designated initialization
+  - You can explicitly initialize each element in a struct w/ .member_declaration = xx w/ surrounding curly braces
 
 ```
+/* clean */
 struct tag {
-    member_declarations;
+    member_declaration;
+};
+
+struct tag my_instance = {.member_declaration = 2};
+
+/* struct definition + declaration of struct instances */
+struct tag {
+    member_declaration;
 } declarators;
+
+/* untagged struct w/ typedef */
+typedef struct {
+    member_declaration;
+} typedef_alias;
 ```
 
 ## Switch Case Statements
@@ -642,6 +659,11 @@ struct tag {
 - `break` statements get you out of the nearest enclosing iteration or switch statement- it's not meant for conditional statements
 - Legal abomination:
   - ![switch-case-abomination](_images/defined-behavior/switch-case-abomination.png)
+- Declaring variables
+  - You can't declare a variable right after a `case` label
+  - This is because a label can only be on a statement, and not a declaration
+  - ...Surrounding the block w/ curly braces may or may not allow the code to compile
+  - Declare variables before the switch-case statement to be safe
 
 ## Ternary Operator
 

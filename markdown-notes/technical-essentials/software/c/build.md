@@ -300,7 +300,7 @@
 - It’s a native Windows port of GCC
 - Allows compilation of C/C++ programs natively for Windows w/ GCC
 - Utilizes Windows headers & runtime
-  Gcc cross-compilers also run on Windows, but they don’t necessarily use Windows headers and runtime, so they’re not necessarily variations of MINGW
+  GCC cross-compilers also run on Windows, but they don’t necessarily use Windows headers and runtime, so they’re not necessarily variations of MINGW
 
 ## Object Dump
 

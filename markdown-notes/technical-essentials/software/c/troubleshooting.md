@@ -206,6 +206,7 @@
   - Type mismatch
 - Control reaches end of non-void function
   - Missing return
+  - ...The return value of the function is undefined
 - Uninitialized variable
   - Variable used without initialization
 - Implicit declaration

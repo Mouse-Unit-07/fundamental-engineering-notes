@@ -276,8 +276,13 @@
 - Wi-Fi fits into the Data Link layer and Physical layer in the 5 layer / OSI model
 - Data rates can vary from 1~72.2 Mb/s per stream depending on the protocol and its configuration
 - Operates at either 2.4 or 5GHz RF waves
-  - …flashback to Raspberry Pis and getting them to connect to our phones at 2.4GHz
-  - Right the Pi Zero Ws would only do 2.4GHz
+  - Both 2.4GHz and 5GHz refer to radio frequencies of Wi-Fi signals
+  - 2.4GHz
+    - Came first- has decent range and was license-free
+    - Many other types of devices emit 2.4GHz radio waves
+  - 5GHz
+    - Established as Wi-Fi got faster to provide more/wider channels and less interference
+    - The trade-off is that 5GHz radio waves don't travel as far
 - Wireless host stations (devices) associate w/ an AP (“access point”) before it sends/receives data via network layer
 - Steps include:
   - Locate AP to associate w/ via passive/active scanning

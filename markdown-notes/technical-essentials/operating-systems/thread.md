@@ -114,8 +114,7 @@
 - Functions that return a pointer to a static variable
 - Functions that call thread-unsafe functions
 - ![thread-safe-vs-reentrant](_images/thread/thread-safe-vs-reentrant.png)
-  - Functions can be reentrant and not thread-safe
-  - If a function takes pointers and performs pure computation (no system state or global variables changes), then it's reentrant in the way that the function behaves exactly the same regardless of number of function calls or overlapping calls, but it's not thread-safe due to potential state changes from the pointers potentially being globals
+  - Functions can be thread-safe and not reentrant- reentrant functions will run the same way every time regardless of shared resources being locked/unlocked
   - Solutions:
     - Protect the entire function w/ synchronization- the function is then "serialized" at the cost of losing concurrency
     - Protect just global variable accesses and critical sections w/ synchronization
