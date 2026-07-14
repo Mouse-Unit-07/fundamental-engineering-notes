@@ -12,6 +12,7 @@
 - [HEX Integers](#hex-integers)
 - [Memory Optimization](#memory-optimization)
 - [PEP 8](#pep-8)
+- [SCPI](#scpi)
 
 ## C vs Python
 
@@ -83,3 +84,9 @@
     - Eh just follow sphinx lol
   - Comparisons
     - Use “is” or “is not” when comparing “None” or Boolean values
+
+## SCPI
+
+- "standard commands for programmable instruments"
+- A standardized text-based command language used to control lab instruments like o-scopes, power supplies, etc
+- Python is usually what's used to send SCPI commands to instruments

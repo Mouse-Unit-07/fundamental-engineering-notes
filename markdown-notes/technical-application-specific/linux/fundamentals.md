@@ -15,9 +15,11 @@
 - [Helpful Utilities](#helpful-utilities)
 - [Is Linux Free?](#is-linux-free)
 - [Jiffies](#jiffies)
+- [LXC](#lxc)
 - [Optimization](#optimization)
 - [Pseudoterminal](#pseudoterminal)
 - [Real Time, Realtime, Process Time](#real-time-realtime-process-time)
+- [Standard C Library](#standard-c-library)
 - [System and Kernel Architecture](#system-and-kernel-architecture)
 - [System Call Interface](#system-call-interface)
 - [Use Cases](#use-cases)
@@ -123,6 +125,12 @@
 
 - Refers to the unit of time measured thanks to the resolution of the system software clock
 
+## LXC
+
+- "Linux container"
+- A lightweight Linux system using kernel isolation features (just like the standard Docker containers we're familiar w/)
+- ...The only difference is that Docker containers are used to run a single application over the whole system
+
 ## Optimization
 
 - By default, Linux kernels are compiled w/ `-O2` flag
@@ -144,6 +152,18 @@
   - The 32-bit year 2038 issue arises from this- need more bits
 - "realtime", as in whether the kernel executes processes in a predictable and finite matter where deadline failures mean catastrophes, doesn't come up much because Linux isn't realtime
 - "process time" refers to total CPU time consumed by a process
+
+## Standard C Library
+
+- The standard C library goes by various names on Linux:
+- glibc
+  - GNU C library
+  - Refers to full C library available on most Linux distros
+- musl
+  - Lightweight C library for embedded applications
+- uClibc-ng
+  - Another lightweight C library originally for routers and small flash devices
+  - Mostly outdated by musl
 
 ## System and Kernel Architecture
 

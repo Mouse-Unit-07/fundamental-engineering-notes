@@ -17,6 +17,7 @@
 - [Common Mode Choke Transformers](#common-mode-choke-transformers)
 - [Components to Avoid](#components-to-avoid)
 - [Confusing Hardware Labels](#confusing-hardware-labels)
+- [Cryogenic Components](#cryogenic-components)
 - [Digital Isolator](#digital-isolator)
 - [Diode](#diode)
 - [ESD Protection ICs](#esd-protection-ics)
@@ -51,6 +52,7 @@
 - [Solenoid](#solenoid)
 - [SPDT CMOS Switch](#spdt-cmos-switch)
 - [SPLD, CPLD, FPGA](#spld-cpld-fpga)
+- [TDR, VNA](#tdr-vna)
 - [TMR](#tmr)
 - [Transformer](#transformer)
 - [Transient Voltage Suppressors](#transient-voltage-suppressors)
@@ -285,6 +287,11 @@
 - ![confusing-part-labels](_images/hardware-parts/confusing-part-labels.png)
 - Date/other misc information that can be interpreted as part numbers, resistor bands, etc
 - ...Once parts get small enough they completely omit any indicators anyway, so ig it's to say PCB's should be clear w/ indicators
+
+## Cryogenic Components
+
+- Refers to hardware engineered to operate at extremely low temperatures
+- "Cryogenic" just means "relating to low temperatures"- in greek it means "frost-producing"
 
 ## Digital Isolator
 
@@ -642,6 +649,17 @@
 - FPGA
   - Uses LUTs (“look-up tables”) for logic implementation
   - Numerous programmable interconnects to route signals
+
+## TDR, VNA
+
+- TDR
+  - "time domain reflectometer"
+  - An instrument that sends fast electrical pulses down a conductor to analyze any reflections
+  - Able to detect broken cables, short circuits, PCB trace defects, impedance discontinuities, etc
+- VNA
+  - "vector network analyzer"
+  - An instrument  that measures how a circuit responds to signals across a range of frequencies
+  - Used for high-speed digital interconnects, PCB transmission lines, RF amplifiers, etc
 
 ## TMR
 

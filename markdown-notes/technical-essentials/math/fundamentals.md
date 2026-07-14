@@ -6,6 +6,7 @@
 
 - [Index](#index)
 - [Least Sqaures Fit](#least-sqaures-fit)
+- [Monte Carlo Simulation](#monte-carlo-simulation)
 
 ## Least Sqaures Fit
 
@@ -27,3 +28,7 @@
     - Finding physical constants from measured data
   - Computer vision / graphics
     - Pose estimation, fitting geometric shapes
+
+## Monte Carlo Simulation
+
+- Refers to modeling the probability of different outcomes w/ random sampling

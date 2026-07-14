@@ -15,6 +15,7 @@
 - [Relational vs Document-Based Databases](#relational-vs-document-based-databases)
 - [REST API](#rest-api)
 - [Saas](#saas)
+- [SQLite3](#sqlite3)
 - [Trie](#trie)
 - [WPF](#wpf)
 
@@ -84,6 +85,11 @@
 - Cloud-based software delivery model where apps are hosted by a provider and made available to users over the internet
 - Users can subscribe to a service and access it online as opposed to installing software on local machines
 - Ex: Word, excel, teams, github, emails, docs, etc
+
+## SQLite3
+
+- A database library that stores an entire database in a single file
+- MySQL, PostgreSQL, etc require servers, but SQLite3 is great for embedded applications for storing everything in a single file
 
 ## Trie
 
